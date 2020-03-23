@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "547568442825",
+    "firebase_url": "https://price-dfb09.firebaseio.com",
+    "project_id": "price-dfb09",
+    "storage_bucket": "price-dfb09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547568442825:android:c41cfd1b0e2e53625c5c18",
+        "android_client_info": {
+          "package_name": "com.cuvar.price"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547568442825-h6vos77uol6ffdban1shprifokej38r7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cuvar.price",
+            "certificate_hash": "f2ffa7873364eb2bfa7a1147d2c11028418757a4"
+          }
+        },
+        {
+          "client_id": "547568442825-hheoui3g626ao4nnbncatihhr879ee5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYI5WzRGwm2svSzl0qqAoGPnXZdjw2jnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547568442825-hheoui3g626ao4nnbncatihhr879ee5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
