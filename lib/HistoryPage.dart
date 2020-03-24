@@ -23,15 +23,15 @@ class _HistoryPageState extends State<HistoryPage> {
           Container(height: 30),
           Row(
             children: <Widget>[
-              Text(
-                'Current discount:  ',
+              Text(                           //text for current %
+                'Current discount:  ',  
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
                 ),
               ),
               Text(
-                '$percentage%',
+                '$percentage%',               //current %
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -44,7 +44,7 @@ class _HistoryPageState extends State<HistoryPage> {
           Row(
             children: <Widget>[
               Text(
-                'Enter new discount:  ',
+                'Enter new discount:  ',          //text for new %
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
@@ -52,7 +52,7 @@ class _HistoryPageState extends State<HistoryPage> {
               ),
               Container(
                 width: 50,
-                child: TextField(
+                child: TextField(                 //editfield for %
                   keyboardType: TextInputType.number,
                   style: TextStyle(color: Colors.black),
                   decoration: new InputDecoration(
@@ -67,25 +67,25 @@ class _HistoryPageState extends State<HistoryPage> {
               )
             ],
           ),
-          Container(height: 40),
+          Container(height: 40),                  //space
           Divider(
             height: 1,
             thickness: 1.5,
             color: Colors.grey,
             endIndent: 20.0,
           ),
-          Container(height: 30),
+          Container(height: 30),                  //space
           Row(
             children: <Widget>[
               Text(
-                'Price without discount:  ',
+                'Price without discount:  ',      //text price without %
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
                 ),
               ),              
               Text(
-                '$oldPrice',
+                '$oldPrice',                      //oldPrice
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -94,18 +94,18 @@ class _HistoryPageState extends State<HistoryPage> {
               ),
             ],
           ),
-          Container(height: 30),
+          Container(height: 30),                  //space
           Row(
             children: <Widget>[
               Text(
-                'Price with discount:  ',
+                'Price with discount:  ',         //text price without %
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
                 ),
               ),              
               Text(
-                '$newPrice',
+                '$newPrice',                      //newPrice
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,

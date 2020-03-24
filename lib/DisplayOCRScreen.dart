@@ -9,6 +9,7 @@ class DisplayOCRScreen extends StatelessWidget {
   const DisplayOCRScreen({Key key, this.imagePath, this.text})
       : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,10 @@ class DisplayOCRScreen extends StatelessWidget {
           backgroundColor: Color(0xff1D2944),
         ),
         body: ListView(
-          children: <Widget>[Image.file(File(imagePath)), Text(text)],
+          children: <Widget>[
+            Image.file(File(imagePath)), //displays image
+            Text(text)    //displays numbers
+            ],
         ));
   }
 }

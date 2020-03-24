@@ -27,21 +27,21 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff1D2944),
+        backgroundColor: Color(0xff1D2944),       //main theme color
         title: Text('Price'),
       ),
       body: _children[_currentIndex], // new
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(     //bottom navi bar
         backgroundColor: Color(0xff1D2944),
         unselectedItemColor: Colors.white,
         onTap: onTabTapped, // new
         currentIndex: _currentIndex, // new
         items: [
-          new BottomNavigationBarItem(
+          new BottomNavigationBarItem(            //cam button
             icon: Icon(Icons.camera),
             title: Text('Camera'),
           ),
-          new BottomNavigationBarItem(
+          new BottomNavigationBarItem(          //home button
             icon: Icon(Icons.home),
             title: Text('Home'),
           ),
