@@ -11,9 +11,7 @@ import 'DisplayOCRScreen.dart';
 import 'Painter.dart';
 import 'Camera.dart';
 
-// TODO: Parse doubles from text
-// TODO: recognizes numbers with ',' also as doubles
-// TODO: Calculation
+double percentage = 0;
 
 //Stateful widget
 class CameraPage extends StatefulWidget {
@@ -28,7 +26,7 @@ class _CameraPageState extends State<CameraPage> {
   CameraController controller;
   List cameras; //list of available cams
   int selectedCameraIdx; //index of selected cam
-  String recognizedNums = ''; //stores recognizes text of image
+  double recognizedNum; //stores recognizes text of image
 
   //searches, gets and initializes camera
   @override
@@ -85,27 +83,23 @@ class _CameraPageState extends State<CameraPage> {
   }
 
   //analyze Text for doubles
-  Future<String> analyzeTextForDoubles(VisionText _visionText) async {
-    List<String> recognizedDoubles;
-
+  Future<double> analyzeTextForDoubles(VisionText _visionText) async {
+    double recognizedDouble;
 
     for (TextBlock block in _visionText.blocks) {
-      //final Rect boundingBox = block.boundingBox;
-      //final List<Offset> cornerPoints = block.cornerPoints;
-      //final String text = block.text;
-      //final List<RecognizedLanguage> languages = block.recognizedLanguages;
-
       for (TextLine line in block.lines) {
         for (TextElement element in line.elements) {
-          String e = element.toString();
-          if(e.contains(new RegExp(r'\b\d+[,.]\d+\b'), 0)) {
-            recognizedDoubles.add(e);
-            print('------------------------------$e');
+          String e = element.text.toString();
+          if (e.contains(',')) {
+            e = e.replaceAll(',', '.');
+            recognizedDouble = double.parse(e);
+          } else if (e.contains('.')) {
+            recognizedDouble = double.parse(e).abs();
           }
         }
       }
     }
-    return null;
+    return recognizedDouble;
   }
 
   //take picture and recognize Text
@@ -135,15 +129,15 @@ class _CameraPageState extends State<CameraPage> {
       final VisionText visionText =
           await textRecognizer.processImage(visionImage);
 
-      recognizedNums = await analyzeTextForDoubles(visionText);
+      recognizedNum = await analyzeTextForDoubles(visionText);
       textRecognizer.close();
-
+  
       //output doubles on next screen
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) =>
-              DisplayOCRScreen(imagePath: path, text: recognizedNums),
+              DisplayOCRScreen(imagePath: path, num: recognizedNum),
         ),
       );
     } catch (e) {
@@ -159,6 +153,46 @@ class _CameraPageState extends State<CameraPage> {
         cameraPreviewWidget(controller, context), //actual camera preview
         CustomPaint(
           painter: Painter(context), //painter for blue scan-rectangle
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 370, left: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              
+              Row(
+                children: <Widget>[
+                  Text(
+                    'Enter new discount:  ', //text for new %
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  Container(
+                    width: 50,
+                    child: TextField(
+                      //editfield for %
+                      keyboardType: TextInputType.number,
+                      style: TextStyle(color: Colors.black),
+                      decoration: new InputDecoration(
+                        contentPadding: const EdgeInsets.all(10.0),
+                      ),
+                      onSubmitted: (String a) {
+                        setState(() {
+                          percentage = double.parse(a);
+                          if (percentage > 100 || percentage < 0) {
+                            percentage = 0; 
+                          }
+                        });
+                      },
+                    ),
+                  )
+                ],
+              ),
+              Container(height: 40), //space
+            ],
+          ),
         ),
         Align(
             alignment: Alignment.bottomCenter,
