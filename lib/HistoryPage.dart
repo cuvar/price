@@ -1,3 +1,20 @@
+/*
+
+
+
+
+
+
+UNUSED
+
+
+
+
+
+
+
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +25,9 @@ class HistoryPage extends StatefulWidget {
   _HistoryPageState createState() => new _HistoryPageState();
 }
 
+double percentage = 0;
+
 class _HistoryPageState extends State<HistoryPage> {
-  double percentage = 0;
-  double oldPrice = 5;
-  double newPrice = 4.0;
 
   @override
   Widget build(BuildContext context) {
@@ -74,48 +90,9 @@ class _HistoryPageState extends State<HistoryPage> {
             color: Colors.grey,
             endIndent: 20.0,
           ),
-          Container(height: 30),                  //space
-          Row(
-            children: <Widget>[
-              Text(
-                'Price without discount:  ',      //text price without %
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18.0,
-                ),
-              ),              
-              Text(
-                '$oldPrice',                      //oldPrice
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          Container(height: 30),                  //space
-          Row(
-            children: <Widget>[
-              Text(
-                'Price with discount:  ',         //text price without %
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18.0,
-                ),
-              ),              
-              Text(
-                '$newPrice',                      //newPrice
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );
   }
 }
+*/
